@@ -8,7 +8,7 @@
     {!! Form::open(array('url' => route('user.update', ['user' => $user->id]), 'method' => 'put')) !!}		
 			{!! Form::text('name',  $user->name) !!}
 			{!! Form::text('email',  $user->email) !!}
-			{!! Form::text('password',  $user->password) !!}
+			{!! Form::password('password')!!}
 			{!! Form::submit('Edit') !!}
 	{!! Form::close() !!}
 
