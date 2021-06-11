@@ -92,7 +92,7 @@ class UserController extends Controller
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
 
         return redirect(route('user.index'))->with(['success' => 'User is updated!!!!']);

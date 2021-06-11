@@ -5,10 +5,21 @@
         </h2>
     </x-slot>
 
-    {!! Form::open(array('url' => route('user.update', ['user' => $user->id]), 'method' => 'put')) !!}		
-			{!! Form::text('name',  $user->name) !!}
-			{!! Form::text('email',  $user->email) !!}
-			{!! Form::password('password')!!}
+    {!! Form::open(array('url' => route('user.update', ['user' => $user->id]), 'method' => 'put')) !!}	
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif	
+
+			{!! Form::text('name', $user->name) !!}
+			{!! Form::text('email', $user->email) !!}
+			{!! Form::password('password') !!}
 			{!! Form::submit('Edit') !!}
 	{!! Form::close() !!}
 
