@@ -16,10 +16,14 @@
                     </ul>
                 </div>
             @endif	
+            {!! Form::label('name', 'Name :') !!} <br> <br>
+			{!! Form::text('name', $user->name) !!} <br> <br>
 
-			{!! Form::text('name', $user->name) !!}
-			{!! Form::text('email', $user->email) !!}
-			{!! Form::password('password') !!}
+            {!! Form::label('email', 'Email :') !!} <br> <br>
+			{!! Form::text('email', $user->email) !!}<br> <br>
+
+            {!! Form::label('password', 'Password :') !!} <br> <br>
+			{!! Form::password('password') !!}<br> <br>
 			{!! Form::submit('Edit') !!}
 	{!! Form::close() !!}
 

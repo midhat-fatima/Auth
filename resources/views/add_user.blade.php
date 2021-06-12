@@ -30,21 +30,20 @@
         {!! Form::open(array('url' => route('user.store'), 'method' => 'post')) !!}		
 
             <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+            <div class="mt-4">
+                {!! Form::label('name', 'Name :') !!} <br>
                 {!! Form::text('name') !!}
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+            {!! Form::label('email', 'Email :') !!} <br>
                 {!! Form::email('email') !!}
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
+            {!! Form::label('password', 'Password :') !!} <br>
                 <x-input id="password"
                                 type="password"
                                 name="password"
@@ -53,8 +52,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
+            {!! Form::label('comfirm_password', 'Comfirm Password :') !!} <br>
                 <x-input id="password_confirmation"
                                 type="password"
                                 name="password_confirmation" required />
