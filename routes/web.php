@@ -27,3 +27,4 @@ require __DIR__.'/auth.php';
 Route::resource('user', 'UserController');
 Route::resource('page', 'PageController');
 Route::resource('post', 'PostController');
+Route::resource('categories', 'CategoriesController');
