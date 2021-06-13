@@ -39,7 +39,7 @@ class CategoriesController extends Controller
     {
         $categories = Categories::create([
 
-            'name' => $request->name,
+            'category_name' => $request->category_name,
         ]);
         
         return redirect(route('categories.index'))->with(['success' => 'categories is added!!!!']);
@@ -78,7 +78,7 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
          Categories::where('id', $id)->update([
-            'name' => $request->name,
+            'category_name' => $request->category_name,
         ]);
 
         return redirect(route('categories.index'))->with(['success' => 'categories is updated!!!!']);

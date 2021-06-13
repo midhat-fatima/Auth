@@ -6,8 +6,8 @@
     </x-slot>
 
     {!! Form::open(array('url' => route('categories.store'), 'method' => 'post')) !!}	
-            {!! Form::label('name', 'categories :') !!}   <br>   <br>
-			    {!! Form::text('name') !!}   <br>   <br>
+            {!! Form::label('category_name', 'categories :') !!}   <br>   <br>
+			    {!! Form::text('category_name') !!}   <br>   <br>
 			{!! Form::submit('Add New categories') !!}
 	{!! Form::close() !!}
 

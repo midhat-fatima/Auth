@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('categories') }} 
+            {{ __('Categories') }} 
         </h2>
     </x-slot>
 
@@ -10,13 +10,13 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                 
-                <a style="background-color:green; color:white; padding:10px; text-decoration:none; border-radius:10px; position:absolute; top:150px; right:430px;"href="{{route('categories.create')}} ">Add New User</a>
+                <a style="background-color:green; color:white; padding:10px; text-decoration:none; border-radius:10px; position:absolute; top:150px; right:430px;"href="{{route('categories.create')}} ">Add New Category</a>
                 
                 @if(count($categories))
                     @foreach ($categories as $item)
                         <ul>
                             <li>Id : {{$item->id}}<li>
-                            <li>Title : {{$item->name}}<li>
+                            <li>Title : {{$item->category_name}}<li>
                             <!-- <li>Content : {{$item->content}}<li> -->
                             <li>{!! Form::open(array('url'=> route('categories.edit', ['category'=> $item->id]), 'method' => 'get')) !!}
                                     {!! Form::submit('Edit', array('style' => 'padding:5px; background-color:grey; color:white; border-radius:10px;')) !!}

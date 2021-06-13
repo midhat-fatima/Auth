@@ -17,8 +17,8 @@
             </div>
         @endif	
 
-        {!! Form::label('name', 'categories :') !!}	   <br>   <br>
-		{!! Form::text('name', $categories->name) !!}   <br>   <br>
+        {!! Form::label('category_name', 'Categories :') !!}	   <br>   <br>
+		{!! Form::text('category_name', $categories->category_name) !!}   <br>   <br>
         {!! Form::submit('Edit') !!}
 
 	{!! Form::close() !!}
