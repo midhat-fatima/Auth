@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Pages;
+// use App\Models\Pages;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -77,7 +77,16 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::where('id', $id)->first();
-        return view('edit_post', ['post' => $post]);
+        $categories = Categories::all();
+
+        $categoriesData = array();
+        foreach( $categories as $category )
+        {            
+            $temp = $category->category_name;
+            $categoriesData[$category->id] = $temp; 
+        }
+
+        return view('edit_post', ['post' => $post, 'edit_post' => $categoriesData]);
     }
 
     /**
@@ -89,10 +98,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Post::where('id', $id)->update([
-            'title' => $request->title,
-            'content' => $request->content,
-            'category_id' => $request->categories_name,
+        $post = Post::where('id', $id)->update([
+                'title' => $request->title,
+                'content' => $request->content,
+                'category_id' => $request->category_id,
         ]);
 
         return redirect(route('post.index'))->with(['success' => 'Post is updated!!!!']);
