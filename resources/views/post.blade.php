@@ -17,6 +17,7 @@
                         <ul>
                             <li>Id : {{$item->id}}<li>
                             <li>Title : {{$item->title}}<li>
+                            <li>Category : {{$item->category_id}}<li>
                             <!-- <li>Content : {{$item->content}}<li> -->
                             <li>{!! Form::open(array('url'=> route('post.edit', ['post'=> $item->id]), 'method' => 'get')) !!}
                                     {!! Form::submit('Edit', array('style' => 'padding:5px; background-color:grey; color:white; border-radius:10px;')) !!}

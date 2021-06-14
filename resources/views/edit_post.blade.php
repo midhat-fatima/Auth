@@ -18,9 +18,11 @@
         @endif	
 
         {!! Form::label('title', 'Title :') !!}	   <br>   <br>
-		{!! Form::text('title', $post->title) !!}   <br>   <br>
+		    {!! Form::text('title', $post->title) !!}   <br>   <br>
         {!! Form::label('content', 'Content :') !!}   <br>   <br>
-		{!! Form::textarea('content', $post->content) !!}   <br>   <br>
+		    {!! Form::textarea('content', $post->content) !!}   <br>   <br>
+        {!! Form::label('category', 'Category :') !!}   <br>   <br>
+			    {!! Form::text('category') !!}   <br>   <br>
 		{!! Form::submit('Edit') !!}
 
 	{!! Form::close() !!}

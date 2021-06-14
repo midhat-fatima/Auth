@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Pages;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -27,7 +28,16 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('add_post');
+        $categories = Categories::all();
+
+        $categoriesData = array();
+        foreach( $categories as $category )
+        {            
+            $temp = $category->category_name;
+            $categoriesData[$category->id] = $temp; 
+        }
+
+        return view('add_post',['add_post' => $categoriesData]);
     }
 
     /**
@@ -41,6 +51,7 @@ class PostController extends Controller
         $post = Post::create([
             'title' => $request->title,
             'content' => $request->content,
+            'category_id' => $request->category_id,
         ]);
         
         return redirect(route('post.index'))->with(['success' => 'Post is added!!!!']);
@@ -81,6 +92,7 @@ class PostController extends Controller
         Post::where('id', $id)->update([
             'title' => $request->title,
             'content' => $request->content,
+            'category_id' => $request->categories_name,
         ]);
 
         return redirect(route('post.index'))->with(['success' => 'Post is updated!!!!']);

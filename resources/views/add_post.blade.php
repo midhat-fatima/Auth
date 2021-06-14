@@ -11,6 +11,8 @@
 			    {!! Form::text('title') !!} <br>   <br>
             {!! Form::label('content', 'Content :') !!}   <br>   <br>
 			    {!! Form::textarea('content') !!}   <br>   <br>
+            {!! Form::label('category', 'Category :') !!}   <br>   <br>
+                {!! Form::select('category_id', $add_post) !!} <br>   <br>
 			{!! Form::submit('Add New post') !!}
 	{!! Form::close() !!}
 
