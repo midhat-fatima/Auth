@@ -16,4 +16,11 @@
 			{!! Form::submit('Add New post') !!}
 	{!! Form::close() !!}
 
+
+
+
+
+
+
+
 </x-app-layout>

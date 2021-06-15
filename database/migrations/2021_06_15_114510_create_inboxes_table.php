@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateInboxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('inboxes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('content');
-            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->string('sendTo');
+            $table->string('subject');
+            $table->string('message');
+            $table->string('sender');
+            // $table->foreignId('sender')->constrained('inboxes')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('inbox');
     }
 }
