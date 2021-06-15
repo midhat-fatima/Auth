@@ -16,7 +16,7 @@ class PageController extends Controller
     public function index()
     {
     $page = Pages::all();
-        return view('page', ['page' => $page]);
+        return view('page/page', ['page' => $page]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('add_page');
+        return view('page/add_page');
     }
 
     /**
@@ -68,7 +68,7 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Pages::where('id', $id)->first();
-        return view('edit_page', ['page' => $page]);
+        return view('page/edit_page', ['page' => $page]);
     }
 
     /**

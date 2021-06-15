@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             // $table->bigInteger('category_name')->unsigned();
             $table->timestamps();
 
-            $table->foreignId('category_id')->constrained('categories')->unsigned();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
         });
     }
 

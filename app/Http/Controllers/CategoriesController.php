@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::all();
-        return view('category', ['categories' => $categories]);
+        return view('category/category', ['categories' => $categories]);
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('add_category');
+        return view('category/add_category');
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $categories = Categories::where('id', $id)->first();
-        return view('edit_category', ['categories' => $categories]);
+        return view('category/edit_category', ['categories' => $categories]);
     }
 
     /**
@@ -91,6 +91,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
+        
         Categories::where('id', $id)->delete();
         return redirect(route('categories.index'))->with(['success' => 'categories is Deleted!!!!']);
     }

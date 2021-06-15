@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('user', ['user' => $user]);
+        return view('user/user', ['user' => $user]);
     }
 
     /**
@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('add_user');
+        return view('user/add_user');
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        return view('edit_user', ['user' => $user]);
+        return view('user/edit_user', ['user' => $user]);
     }
 
     /**

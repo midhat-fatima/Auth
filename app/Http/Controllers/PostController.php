@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        return view('post', ['post' => $post]);
+        return view('post/post', ['post' => $post]);
     }
 
     /**
@@ -37,7 +37,7 @@ class PostController extends Controller
             $categoriesData[$category->id] = $temp; 
         }
 
-        return view('add_post',['add_post' => $categoriesData]);
+        return view('post/add_post',['add_post' => $categoriesData]);
     }
 
     /**
@@ -86,7 +86,7 @@ class PostController extends Controller
             $categoriesData[$category->id] = $temp; 
         }
 
-        return view('edit_post', ['post' => $post, 'edit_post' => $categoriesData]);
+        return view('post/edit_post', ['post' => $post, 'edit_post' => $categoriesData]);
     }
 
     /**
