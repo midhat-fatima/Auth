@@ -10,7 +10,7 @@
             {!! Form::label('sendTo', 'Send To :') !!}	   <br>   <br>
 			    {!! Form::select('sendTo', $add_user) !!} <br>   <br>
             {!! Form::label('sender', 'From :') !!}	   <br>   <br>
-			    {!! Form::text('sender') !!} <br>   <br>
+			    {!! Form::text('sender', Auth::user()->email) !!} <br>   <br>
             {!! Form::label('subject', 'Subject :') !!}	   <br>   <br>
 			    {!! Form::text('subject') !!} <br>   <br>
             {!! Form::label('message', 'Message :') !!}   <br>   <br>

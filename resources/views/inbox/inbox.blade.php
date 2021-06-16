@@ -12,20 +12,22 @@
                 
                 <a style="background-color:green; color:white; padding:10px; text-decoration:none; border-radius:10px; position:absolute; top:150px; right:430px;"href="{{route('inbox.create')}} ">Add New inbox</a>
                 
-                @if(count($inbox))
-                    @foreach ($inbox as $item)
+                @if(count($message))
+                    @foreach ($message as $list)
                         <ul>
-                            <li>Id : {{$item->id}}<li>
-                            <li>Send To : {{$item->sendTo}}<li>
-                            <li>Sender : {{$item->sender}}<li>
-                            <li>Subject : {{$item->subject}}<li>
-                            <li>Message : {{$item->message}}<li>
-                                {!! Form::open(array('url'=> route('inbox.destroy', ['inbox'=> $item->id]), 'method' => 'delete')) !!}
+                            <li>Id : {{$list->id}}<li>
+                            <li>Send To : {{$list->sendTo}}<li>
+                            <li>Sender : {{$list->sender}}<li>
+                            <li>Subject : {{$list->subject}}<li>
+                            <li>Message : {{$list->message}}<li>
+                                {!! Form::open(array('url'=> route('inbox.destroy', ['inbox'=> $list->id]), 'method' => 'delete')) !!}
                                     {!! Form::submit('Delete',array('style' => 'padding:5px; background-color:red; color:white; border-radius:10px;')) !!}
                                     {!! Form::close() !!}</li>
                             <br><hr><br>
                         </ul>
                     @endforeach
+                    @else
+                    <h5> Data Not Found</h5>
                 @endif
                 </div>
             </div>

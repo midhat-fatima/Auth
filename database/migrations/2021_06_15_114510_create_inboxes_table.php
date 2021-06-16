@@ -18,8 +18,8 @@ class CreateInboxesTable extends Migration
             $table->string('sendTo');
             $table->string('subject');
             $table->string('message');
-            $table->string('sender');
-            // $table->foreignId('sender')->constrained('inboxes')->cascadeOnDelete();
+            // $table->string('sender');
+            $table->foreignId('sender')->constrained('inboxes')->cascadeOnDelete();
             $table->timestamps();
         });
     }

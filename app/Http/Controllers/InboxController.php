@@ -6,6 +6,7 @@ use App\Models\Inbox;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 class InboxController extends Controller
 {
@@ -16,8 +17,8 @@ class InboxController extends Controller
      */
     public function index()
     {
-        $message = Inbox::all();
-        return view('inbox/inbox', ['inbox' => $message]);
+        $message = Inbox::where('sendTo', Auth::user()->id)->get();
+        return view('inbox/inbox', ['message' => $message]);
     }
 
     /**
@@ -27,7 +28,7 @@ class InboxController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $users = User::select('id', 'email')->get();
 
         $usersData = array();
         foreach( $users as $user )
@@ -51,7 +52,7 @@ class InboxController extends Controller
             'sendTo' => $request->sendTo,
             'subject' => $request->subject,
             'message' => $request->message,
-            'sender' => $request->sender,
+            'sender' => auth()->id(),
         ]);
 
         return redirect(route('inbox.index'))->with(['success' => 'Message sent!!!!']);
